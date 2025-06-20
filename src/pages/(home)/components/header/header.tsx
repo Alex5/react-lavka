@@ -6,6 +6,7 @@ import { useAuth } from "@shared/api/hooks/use-auth/use-auth";
 import { Text } from "@shared/ui/text/Text";
 import { Image } from "@shared/ui/image/image.component";
 import { ButtonLink } from "@shared/ui/button-link/button-link";
+import reactLavkaFullLogo from "@assets/logos/react_lavka_full_logo.svg"
 
 export function Header() {
   const { logout, user } = useAuth();
@@ -14,7 +15,7 @@ export function Header() {
     <header className={styles.header}>
       <div className={styles["header-content"]}>
         <img
-          src="react_lavka_full_logo.svg"
+          src={reactLavkaFullLogo}
           alt="react-lavka-logo"
           height={28}
         />

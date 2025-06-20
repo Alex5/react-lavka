@@ -9,6 +9,7 @@
     "paths": {
       "@shared/*": ["./src/shared/*"],
       "@home/*": ["./src/pages/(home)/*"],
+      "@assets/*": ["./src/app/assets/*"],
     },
     /* Bundler mode */
     "moduleResolution": "bundler",
