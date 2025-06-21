@@ -33,7 +33,7 @@ export function Header() {
             ) : (
               <ButtonLink
                 radius="md"
-                to={import.meta.env.VITE_API_URL + "/api/v1/yandex"}
+                to={import.meta.env.VITE_API_URL + "/api/v1/yandex?redirect_link=http://localhost:5173/react-lavka/"}
                 target="_self"
               >
                 <Text textStyle="md" fontWeight="medium">

@@ -1,3 +1,6 @@
 .button-link {
+  box-sizing: border-box;
   text-decoration: none;
+  /*width: unset;*/
+  /*min-width: unset;*/
 }

@@ -1,16 +1,23 @@
 .cart-sidebar {
-  height: calc(80dvh - var(--react-lavka-header-height));
+  height: calc(100vh - var(--react-lavka-header-height) - var(--react-lavka-margin-header) - 44px);
   position: sticky;
   top: 102px;
   max-width: var(--react-lavka-cart-sidebar-width);
-  width: 100%;
   display: none;
-  margin-right: 20px;
+  flex-direction: column;
+
+  padding: 24px 0 24px 48px
+}
+
+.cart-sidebar-content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;;
 }
 
 @media screen and (min-width: 800px) {
   .cart-sidebar {
-    display: block;
+    display: flex;
   }
 }
 

@@ -45,7 +45,7 @@ export default defineConfig(({mode}) => {
         plugins: plugins,
         server: {
             proxy: {
-                "/api": {
+                "/api/v1": {
                     target: envs.VITE_API_URL,
                     changeOrigin: true,
                 },
