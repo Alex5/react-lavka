@@ -1,0 +1,16 @@
+.container {
+  margin-left: 42px;
+  margin-right: 42px;
+}
+
+.container[data-fluid="true"] {
+  max-width: 100%;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.container[data-center-content="true"] {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

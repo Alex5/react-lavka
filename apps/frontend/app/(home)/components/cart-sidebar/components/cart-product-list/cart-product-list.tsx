@@ -1,0 +1,48 @@
+"use client"
+
+import styles from "@home/components/cart-sidebar/cart-sidebar.module.css";
+import {CartProduct} from "@home/components/cart-sidebar/components/cart-product/cart-product";
+import Image from "next/image";
+import {Text} from "@/shared/ui/text/Text";
+import {useCartStore} from "@/lib/stores/cart.store";
+
+export function CartProductList() {
+    const {cart} = useCartStore();
+
+    const cartItems = Object.values(cart ?? {});
+
+    if (cartItems.length === 0) {
+        return (
+            <div
+                style={{
+                    height: "100%",
+                    display: "flex",
+                    justifyContent: "center",
+                    flexDirection: "column",
+                    gap: 20,
+                    alignItems: "center",
+                    flex: 1
+                }}
+            >
+                <Image
+                    src="https://yastatic.net/s3/lavka-web/public/assets/images/CategoryUnavailable@2x.png"
+                    alt="category-unavailable"
+                    height={176}
+                    width={512}
+                />
+                <Text>
+                    В корзине пока ничего нет. <br/>
+                    Самое время наполнять её!
+                </Text>
+            </div>
+        )
+    }
+
+    return (
+        <ul className={styles["cart-sidebar-list"]}>
+            {cartItems?.map((cartItem) => (
+                <CartProduct key={cartItem.product.id} cartItem={cartItem}/>
+            ))}
+        </ul>
+    )
+}
