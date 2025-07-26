@@ -17,7 +17,9 @@ async function bootstrap() {
 
   const port = config().port;
 
-  await app.listen(port, () => console.log(`Listening on ${port}...`));
+  await app.listen(port, '0.0.0.0', () =>
+    console.log(`Listening on ${port}...`),
+  );
 }
 
 bootstrap();
