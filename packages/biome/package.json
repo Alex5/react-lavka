@@ -1,10 +1,14 @@
 {
   "name": "@react-lavka/biome",
+  "type": "module",
   "version": "1.0.0",
   "exports": {
-    "./config": "./biome.json"
+    "./biome": "./biome.json"
   },
   "dependencies": {
     "@biomejs/biome": "2.1.3"
+  },
+  "scripts": {
+    "biome:format": "biome check --write"
   }
 }
