@@ -2,38 +2,33 @@ export interface CategoryData {
     yaTraceId: string;
     offerId: string;
     layoutId: string;
-    categoryGroup: {
-        id: string;
-        title: string;
-    };
-    categories: Category[];
+    categoryGroup: CategoryGroup;
+    categories: CategorySection[];
     products: Product[];
 }
 
-export interface Category {
+export interface CategoryGroup {
+    id: string;
+    title: string;
+}
+
+export interface CategorySection {
     id: string;
     deepLink: string;
     layout: Layout;
     index: number;
-    value: CategoryValue;
-    items: Item[];
+    value: CategoryMeta;
+    items: ProductTile[];
     discountInformers: any[];
     banners: any[];
 }
 
-export interface CategoryValue {
+export interface CategoryMeta {
     id: string;
     deepLink: string;
     title: string;
     available: boolean;
-    itemMeta: {
-        $titleColor: string;
-        $placeholderColor: string;
-        $isHideTitleOnTile: boolean;
-        skipInCaasPromo: boolean;
-        isRecipesCategory: boolean;
-        disableDiscountsCarousel: boolean;
-    };
+    itemMeta: CategoryUI;
     type: string;
     viewType: string;
     imageSize: [number, number];
@@ -41,26 +36,27 @@ export interface CategoryValue {
     backgroundColor: string;
 }
 
-export interface Item {
+export interface CategoryUI {
+    $titleColor: string;
+    $placeholderColor: string;
+    $isHideTitleOnTile: boolean;
+    skipInCaasPromo: boolean;
+    isRecipesCategory: boolean;
+    disableDiscountsCarousel: boolean;
+}
+
+export interface ProductTile {
     id: string;
     deepLink?: string;
     layout: Layout;
     index: number;
-    value: ProductValue;
+    value: ProductTileMeta;
     items: any[];
     discountInformers: any[];
     banners: any[];
 }
 
-export interface Layout {
-    width: number;
-    height: number;
-    type: string;
-    id: string;
-    isHero: boolean;
-}
-
-export interface ProductValue {
+export interface ProductTileMeta {
     id: string;
     deepLink?: string;
     title: string;
@@ -70,24 +66,30 @@ export interface ProductValue {
     quantityLimit: string;
     withVideo: boolean;
     stickers: any[];
-    options: {
-        docsRequired: boolean;
-        quantityType?: string;
-    };
-    snippetImage: {
-        url: string;
-        substrated: boolean;
-    };
-    recipe?: {
-        cookTimeMinutes: number;
-        activeCookTimeMinutes: number;
-        type: string;
-    };
+    options: ProductOptions;
+    snippetImage: ProductImage;
+    recipe?: RecipeMeta;
     type: string;
     viewType: string;
     imageSize: [number, number];
     hideTitle: boolean;
     backgroundColor: string;
+}
+
+export interface ProductOptions {
+    docsRequired: boolean;
+    quantityType?: string;
+}
+
+export interface ProductImage {
+    url: string;
+    substrated: boolean;
+}
+
+export interface RecipeMeta {
+    cookTimeMinutes: number;
+    activeCookTimeMinutes: number;
+    type: string;
 }
 
 export interface Product {
@@ -99,17 +101,9 @@ export interface Product {
     longTitle: string;
     stickers: any[];
     amount: string;
-    snippetImage: {
-        url: string;
-        substrated: boolean;
-    };
+    snippetImage: ProductImage;
     isFavorite: boolean;
-    pricing: {
-        amountPrice: number;
-        amountPriceSigned: string;
-        price: number;
-        priceSigned: string;
-    };
+    pricing: ProductPricing;
     currentPrice: number;
     currentPriceSigned: string;
     isExpiring: boolean;
@@ -122,15 +116,24 @@ export interface Product {
     incrementStep: number;
     isLowStock: boolean;
     productTags: any[];
-    recipe?: {
-        cookTimeMinutes: number;
-        activeCookTimeMinutes: number;
-    };
+    recipe?: RecipeMeta;
     rewardedProductSamplingInfos: any[];
     withVideo: boolean;
-    options: {
-        docsRequired: boolean;
-        quantityType?: string;
-    };
+    options: ProductOptions;
     children: any[];
+}
+
+export interface ProductPricing {
+    amountPrice: number;
+    amountPriceSigned: string;
+    price: number;
+    priceSigned: string;
+}
+
+export interface Layout {
+    width: number;
+    height: number;
+    type: string;
+    id: string;
+    isHero: boolean;
 }

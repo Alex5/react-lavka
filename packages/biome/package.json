@@ -1,0 +1,10 @@
+{
+  "name": "@react-lavka/biome",
+  "version": "1.0.0",
+  "exports": {
+    "./config": "./biome.json"
+  },
+  "dependencies": {
+    "@biomejs/biome": "2.1.3"
+  }
+}
