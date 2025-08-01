@@ -19,7 +19,7 @@ import { CategoryModule } from './modules/category/category.module';
     }),
     StoreModule,
     CatalogModule,
-    CategoryModule,
+      CategoryModule,
   ],
   controllers: [],
   providers: [],
